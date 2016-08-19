@@ -11,9 +11,75 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Gerrit Riessen"]
-  s.date = "2016-08-18"
+  s.date = "2016-08-19"
   s.description = "Encapsulate adnetworks and their importers."
   s.email = "gerrit@eccrine.io"
+  s.extra_rdoc_files = [
+    "README.md"
+  ]
+  s.files = [
+    ".ruby-gemset",
+    ".ruby-version",
+    "Gemfile",
+    "README.md",
+    "Rakefile",
+    "VERSION",
+    "adtekio_adnetworks.gemspec",
+    "lib/adtekio_adnetworks.rb",
+    "lib/adtekio_adnetworks/configuration.rb",
+    "lib/adtekio_adnetworks/importers.rb",
+    "lib/adtekio_adnetworks/importers/cost/adcolony.rb",
+    "lib/adtekio_adnetworks/importers/cost/adquant.rb",
+    "lib/adtekio_adnetworks/importers/cost/appia.rb",
+    "lib/adtekio_adnetworks/importers/cost/applifier.rb",
+    "lib/adtekio_adnetworks/importers/cost/applift.rb",
+    "lib/adtekio_adnetworks/importers/cost/applovin.rb",
+    "lib/adtekio_adnetworks/importers/cost/bidmotion.rb",
+    "lib/adtekio_adnetworks/importers/cost/chartboost.rb",
+    "lib/adtekio_adnetworks/importers/cost/crossinstall.rb",
+    "lib/adtekio_adnetworks/importers/cost/facebook.rb",
+    "lib/adtekio_adnetworks/importers/cost/fractionalmedia.rb",
+    "lib/adtekio_adnetworks/importers/cost/fyber.rb",
+    "lib/adtekio_adnetworks/importers/cost/gamegenetics.rb",
+    "lib/adtekio_adnetworks/importers/cost/glispa.rb",
+    "lib/adtekio_adnetworks/importers/cost/googleadwords.rb",
+    "lib/adtekio_adnetworks/importers/cost/jampp.rb",
+    "lib/adtekio_adnetworks/importers/cost/leadbolt.rb",
+    "lib/adtekio_adnetworks/importers/cost/lifestreet.rb",
+    "lib/adtekio_adnetworks/importers/cost/loopme.rb",
+    "lib/adtekio_adnetworks/importers/cost/matomy.rb",
+    "lib/adtekio_adnetworks/importers/cost/mdotm.rb",
+    "lib/adtekio_adnetworks/importers/cost/mmg.rb",
+    "lib/adtekio_adnetworks/importers/cost/mnectar.rb",
+    "lib/adtekio_adnetworks/importers/cost/moboqo.rb",
+    "lib/adtekio_adnetworks/importers/cost/mobpartner.rb",
+    "lib/adtekio_adnetworks/importers/cost/nanigans.rb",
+    "lib/adtekio_adnetworks/importers/cost/revmob.rb",
+    "lib/adtekio_adnetworks/importers/cost/rtbmob.rb",
+    "lib/adtekio_adnetworks/importers/cost/startapp.rb",
+    "lib/adtekio_adnetworks/importers/cost/supersonic.rb",
+    "lib/adtekio_adnetworks/importers/cost/tapjoy.rb",
+    "lib/adtekio_adnetworks/importers/cost/tokenads.rb",
+    "lib/adtekio_adnetworks/importers/cost/unilead.rb",
+    "lib/adtekio_adnetworks/importers/cost/vungle.rb",
+    "lib/adtekio_adnetworks/importers/cost_import.rb",
+    "lib/adtekio_adnetworks/importers/revenue/adcolony.rb",
+    "lib/adtekio_adnetworks/importers/revenue/applifier.rb",
+    "lib/adtekio_adnetworks/importers/revenue/applovin.rb",
+    "lib/adtekio_adnetworks/importers/revenue/chartboost.rb",
+    "lib/adtekio_adnetworks/importers/revenue/flurry.rb",
+    "lib/adtekio_adnetworks/importers/revenue/fyber.rb",
+    "lib/adtekio_adnetworks/importers/revenue/hypr_mx.rb",
+    "lib/adtekio_adnetworks/importers/revenue/lifestreet.rb",
+    "lib/adtekio_adnetworks/importers/revenue/mdotm.rb",
+    "lib/adtekio_adnetworks/importers/revenue/mopub.rb",
+    "lib/adtekio_adnetworks/importers/revenue/nexage.rb",
+    "lib/adtekio_adnetworks/importers/revenue/supersonic.rb",
+    "lib/adtekio_adnetworks/importers/revenue/tapsense.rb",
+    "lib/adtekio_adnetworks/importers/revenue/trialpay.rb",
+    "lib/adtekio_adnetworks/importers/revenue/vungle.rb",
+    "lib/adtekio_adnetworks/importers/revenue_import.rb"
+  ]
   s.homepage = "https://github.com/adtekio/adnetworks.git"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.4.5.1"
