@@ -30,7 +30,8 @@ module AdtekioAdnetworks
     end
 
     def network
-      @network ||= self.class.name.downcase.sub(/^.+::([^:]+)$/,'\1').to_sym
+      @network ||=
+        self.class.name.to_s.sub(/^.+::([^:]+)$/,'\1').snakecase.to_sym
     end
 
     def credentials

@@ -30,15 +30,19 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
+  test.warning = false
 end
 
 task :default => :test
 
-desc "Start a pry shell and load all gems"
-task :shell do
-  require 'pry'
+task :environment do
   $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
   require_relative 'lib/adtekio_adnetworks'
+end
+
+desc "Start a pry shell and load all gems"
+task :shell => :environment do
+  require 'pry'
   Pry.editor = "emacs"
   Pry.start
 end
