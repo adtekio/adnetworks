@@ -29,7 +29,7 @@ class AdtekioAdnetworks::Postbacks::Mdotm < AdtekioAdnetworks::BasePostbackClass
         :eventID => "tutorial"
       },
       :user_required => true,
-      :check => "event.params[:funnel_step] == 'open_tutorial'"
+      :check => "params[:funnel_step] == 'open_tutorial'"
     }
   end
 
@@ -80,7 +80,7 @@ class AdtekioAdnetworks::Postbacks::Mdotm < AdtekioAdnetworks::BasePostbackClass
         :package => "@{event.bundleid}@"
       },
       :user_required => true,
-      :check => "event.params[:funnel_step] == 'level_won'"
+      :check => "params[:funnel_step] == 'level_won'"
     }
   end
 
@@ -110,7 +110,7 @@ class AdtekioAdnetworks::Postbacks::Mdotm < AdtekioAdnetworks::BasePostbackClass
   end
 
   def android_id
-    Digest::SHA1.hexdigest(event.params[:android_id]) if event.params[:android_id]
+    Digest::SHA1.hexdigest(params[:android_id]) if params[:android_id]
   end
 
 end
