@@ -5,8 +5,9 @@ module Postbacks
   class TestChartboost < Minitest::Test
     TestKlz = AdtekioAdnetworks::Postbacks::Chartboost
 
-    def instance_with_event(event, opts = {})
-      TestKlz.new(event, opts[:user] || OpenStruct.new,
+    def instance_with_event(event = nil, opts = {})
+      TestKlz.new(event || OpenStruct.new,
+                  opts[:user] || OpenStruct.new,
                   opts[:netcfg] || OpenStruct.new,
                   opts[:params] || OpenStruct.new)
     end

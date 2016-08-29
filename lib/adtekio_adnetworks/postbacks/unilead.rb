@@ -10,7 +10,7 @@ class AdtekioAdnetworks::Postbacks::Unilead < AdtekioAdnetworks::BasePostbackCla
       :params => {
         :transaction_id => "@{params[:click]}@"
       },
-      :check => "event.params[:device].to_s =~/ipad/i",
+      :check => "params[:device].to_s =~/ipad/i",
       :store_user => true
     }
   end
@@ -20,7 +20,7 @@ class AdtekioAdnetworks::Postbacks::Unilead < AdtekioAdnetworks::BasePostbackCla
       :params => {
         :transaction_id => "@{params[:click]}@"
       },
-      :check => "event.params[:device].to_s =~/iphone/i",
+      :check => "params[:device].to_s =~/iphone/i",
       :store_user => true
     }
   end
@@ -31,7 +31,7 @@ class AdtekioAdnetworks::Postbacks::Unilead < AdtekioAdnetworks::BasePostbackCla
         :transaction_id => "@{user.click_data['click']}@"
       },
       :user_required => true,
-      :check => "event.params[:funnel_step] == 'tutorial_complete' && event.params[:device].to_s =~/ipad/i"
+      :check => "params[:funnel_step] == 'tutorial_complete' && params[:device].to_s =~/ipad/i"
     }
   end
 
@@ -41,7 +41,7 @@ class AdtekioAdnetworks::Postbacks::Unilead < AdtekioAdnetworks::BasePostbackCla
         :transaction_id => "@{user.click_data['click']}@"
       },
       :user_required => true,
-      :check => "event.params[:funnel_step] == 'tutorial_complete' && event.params[:device].to_s =~/iphone/i"
+      :check => "params[:funnel_step] == 'tutorial_complete' && params[:device].to_s =~/iphone/i"
     }
   end
 
@@ -52,7 +52,7 @@ class AdtekioAdnetworks::Postbacks::Unilead < AdtekioAdnetworks::BasePostbackCla
         :amount         => "@{event.revenue}@"
       },
       :user_required => true,
-      :check => "event.params[:device].to_s =~/ipad/i"
+      :check => "params[:device].to_s =~/ipad/i"
     }
   end
 
@@ -63,7 +63,7 @@ class AdtekioAdnetworks::Postbacks::Unilead < AdtekioAdnetworks::BasePostbackCla
         :amount         => "@{event.revenue}@"
       },
       :user_required => true,
-      :check => "event.params[:device].to_s =~/iphone/i"
+      :check => "params[:device].to_s =~/iphone/i"
     }
   end
 
