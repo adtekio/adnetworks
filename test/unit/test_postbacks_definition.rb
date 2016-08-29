@@ -1,5 +1,4 @@
 require File.dirname(File.expand_path(__FILE__)) + '/../helper.rb'
-require 'ostruct'
 
 class TestPostbacksDefinition < Minitest::Test
   class TestKlz < AdtekioAdnetworks::BasePostbackClass
@@ -92,11 +91,10 @@ class TestPostbacksDefinition < Minitest::Test
     end
 
     should "generate a url" do
-      e      = OpenStruct.new(:ip => "IP", :adid => "ADID",
-                              :post_value => "POST_VALUE")
-      nc     = OpenStruct.new(:appid => "APPID", :source => "SOURCE")
-      user   = OpenStruct.new
-      params = OpenStruct.new(:fubar => "FUBAR", :header => {:value => "VALUE"})
+      e      = os(:ip => "IP", :adid => "ADID", :post_value => "POST_VALUE")
+      nc     = os(:appid => "APPID", :source => "SOURCE")
+      user   = os
+      params = os(:fubar => "FUBAR", :header => {:value => "VALUE"})
       r = TestKlz.new(e, user, nc, params).mac(:all)
 
       assert_equal("http://getap.ps/callback.php/FUBAR?appid=APPID&"+

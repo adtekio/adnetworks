@@ -13,12 +13,24 @@ require 'minitest/unit'
 require 'shoulda/context'
 require 'rr'
 require 'pry'
+require 'ostruct'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'adtekio_adnetworks'
 
 class Minitest::Test
+  def os(hsh = {})
+    OpenStruct.new(hsh)
+  end
+
+  def instance_with_event(event = nil, opts = {})
+    test_klazz.new(event || os,
+                   opts[:user] || os,
+                   opts[:netcfg] || os,
+                   opts[:params] || os)
+  end
+
   def dump_exception(e)
     puts "-"*20
     puts e.message

@@ -1,5 +1,4 @@
 require File.dirname(File.expand_path(__FILE__)) + '/../helper.rb'
-require 'ostruct'
 
 class TestBasePostbackClass < Minitest::Test
   context "helper methods" do
@@ -25,24 +24,24 @@ class TestBasePostbackClass < Minitest::Test
     should "have should_handle method" do
       assert_equal true, @obj.should_handle?(OpenStruct.new)
 
-      cfg = OpenStruct.new :check => "false"
+      cfg = os(:check => "false")
       assert_equal false, @obj.should_handle?(cfg)
 
-      cfg = OpenStruct.new :check => :method_not_defined
+      cfg = os(:check => :method_not_defined)
       assert_raises NoMethodError do
         @obj.should_handle?(cfg)
       end
 
-      cfg = OpenStruct.new :check => :return_true
+      cfg = os(:check => :return_true)
       @obj.instance_eval do
         def return_true
           true
         end
       end
       assert_equal true, @obj.should_handle?(cfg)
-      cfg = OpenStruct.new :check => 'self.return_true'
+      cfg = os(:check => 'self.return_true')
       assert_equal true, @obj.should_handle?(cfg)
-      cfg = OpenStruct.new :check => 'return_true'
+      cfg = os(:check => 'return_true')
       assert_equal true, @obj.should_handle?(cfg)
     end
 

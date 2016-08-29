@@ -1,15 +1,9 @@
 require File.dirname(File.expand_path(__FILE__)) + '/../../helper.rb'
-require 'ostruct'
 
 module Postbacks
   class TestChartboost < Minitest::Test
-    TestKlz = AdtekioAdnetworks::Postbacks::Chartboost
-
-    def instance_with_event(event = nil, opts = {})
-      TestKlz.new(event || OpenStruct.new,
-                  opts[:user] || OpenStruct.new,
-                  opts[:netcfg] || OpenStruct.new,
-                  opts[:params] || OpenStruct.new)
+    def test_klazz
+      AdtekioAdnetworks::Postbacks::Chartboost
     end
 
     class ChartboostEvent < OpenStruct
@@ -23,9 +17,8 @@ module Postbacks
         e = ChartboostEvent.new(:currency      => "CUR",
                                 :trigger_stamp => "STAMP",
                                 :adid          => "ADID")
-        nc = OpenStruct.new(:api_token =>"TOKEN")
-        params = OpenStruct.new(:price => 1.2,
-                                :st1   => "PRODUCT_ID")
+        nc = os(:api_token =>"TOKEN")
+        params = os(:price => 1.2, :st1 => "PRODUCT_ID")
 
         obj = instance_with_event(e, :netcfg => nc, :params => params)
         hsh = JSON.parse(obj.iap_body)
@@ -46,8 +39,8 @@ module Postbacks
       end
 
       should "work with all inputs" do
-        e   = OpenStruct.new(:trigger_stamp => "fubar")
-        nc  = OpenStruct.new(:app_id => "app_id", :api_token => "api_token")
+        e   = os(:trigger_stamp => "fubar")
+        nc  = os(:app_id => "app_id", :api_token => "api_token")
         obj = instance_with_event(e, :netcfg => nc)
         assert_equal("85191be548c623170605aaf539a03fa3"+
                      "9810f2c66e6262da3529ddefc79a8fb8", obj.signature)
@@ -62,9 +55,9 @@ module Postbacks
       end
 
       should "work with all inputs" do
-        e   = OpenStruct.new(:trigger_stamp => "fubar")
-        nc  = OpenStruct.new(:app_id => "app_id", :api_token => "api_token",
-                             :api_secret => "api_secret")
+        e   = os(:trigger_stamp => "fubar")
+        nc  = os(:app_id => "app_id", :api_token => "api_token",
+                 :api_secret => "api_secret")
         obj = instance_with_event(e, :netcfg => nc)
         assert_equal("785dba88b030f33387f70439b15cc115"+
                      "98a64c13be93c6262f8fb7913279a3d8", obj.install_signature)
@@ -103,7 +96,7 @@ module Postbacks
 
       should "set app_id if netcfg contains value" do
         obj = instance_with_event(ChartboostEvent.new(:is_android => false),
-                                  :netcfg=>OpenStruct.new(:app_id=>"app_id"))
+                                  :netcfg => os(:app_id=>"app_id"))
         assert_equal({"ifa" => nil, "app_id"=>"app_id","claim"=>1},
                      JSON.parse(obj.install_body))
       end

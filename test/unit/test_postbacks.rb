@@ -1,13 +1,11 @@
 require File.dirname(File.expand_path(__FILE__)) + '/../helper.rb'
-require 'ostruct'
 
 class TestPostbacks < Minitest::Test
   context "generate urls" do
     should "be able to generate urls using empty data" do
-      event_obj = OpenStruct.new(:params => OpenStruct.new,
-                                 :time => Time.now)
-      user      = OpenStruct.new(:click_data => OpenStruct.new)
-      netcfg    = OpenStruct.new
+      event_obj = os(:params => OpenStruct.new, :time => Time.now)
+      user      = os(:click_data => OpenStruct.new)
+      netcfg    = os
 
       for_all_events do |network, klz, platform, event|
         klz.new(event_obj,user,netcfg).send(event, platform).each do |urlcfg|
