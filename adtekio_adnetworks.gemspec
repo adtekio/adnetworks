@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Gerrit Riessen"]
-  s.date = "2016-08-27"
+  s.date = "2016-08-30"
   s.description = "Encapsulate adnetworks and their importers."
   s.email = "gerrit@eccrine.io"
   s.extra_rdoc_files = [
@@ -205,6 +205,10 @@ Gem::Specification.new do |s|
     "lib/adtekio_adnetworks/postbacks/zemail.rb",
     "test/helper.rb",
     "test/unit/postbacks/test_chartboost.rb",
+    "test/unit/postbacks/test_mdotm.rb",
+    "test/unit/postbacks/test_playhaven.rb",
+    "test/unit/postbacks/test_trademob_magic_solver.rb",
+    "test/unit/postbacks/test_unilead.rb",
     "test/unit/test_base_postback_class.rb",
     "test/unit/test_postbacks.rb",
     "test/unit/test_postbacks_definition.rb"
