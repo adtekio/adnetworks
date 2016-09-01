@@ -9,6 +9,10 @@ class AdtekioAdnetworks::Cost::Bidmotion
                           "device_type", "clicks", "conversions",
                           "conversion_rate", "revenue"]
 
+  define_required_credentials do
+    [:username, :password, :platform]
+  end
+
   def campaign_costs(from, till)
     load_data(from, till).reject do |campaign_data|
       campaign_data[7].to_f == 0

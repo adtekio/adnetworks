@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Tapjoy
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key, :username]
+  end
+
   def campaign_costs(from, till)
     from.upto(till).map do |date|
 

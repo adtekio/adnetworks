@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Leadbolt
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:advertiser_id, :secret_key]
+  end
+
   def load_data(from, till)
     return [] if till < Date.today-7
     from = [Date.today-7, from].max

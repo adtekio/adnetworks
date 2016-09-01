@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Adcolony
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def campaign_costs(from, till)
     uri = Addressable::URI.
       parse("http://clients.adcolony.com/api/v2/advertiser_summary")

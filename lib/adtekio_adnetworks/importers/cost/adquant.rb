@@ -5,6 +5,10 @@ class AdtekioAdnetworks::Cost::Adquant
   AUTH_ROUTE   = "auth"
   DATA_ROUTE   = "report/grid"
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def campaign_costs(from, till)
     load_data.map do |campaign_data|
       campaign_name = campaign_data[:fcg_name]

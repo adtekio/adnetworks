@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Moboqo
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def campaign_costs(from, till)
     uri = Addressable::URI.parse("http://dashboard.moboqo.com/stats/stats.json")
     uri.query_values = {

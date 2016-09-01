@@ -9,6 +9,10 @@ class AdtekioAdnetworks::Revenue::Applifier
 
   BASE_URL = "https://gameads-admin.applifier.com/stats/monetization-api"
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def revenues(from, to)
     report(from,to).map do |csv_data|
       CSV(csv_data, CsvOptions).map do |row|

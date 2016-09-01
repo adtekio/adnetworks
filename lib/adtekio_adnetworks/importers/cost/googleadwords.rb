@@ -3,6 +3,12 @@ class AdtekioAdnetworks::Cost::Googleadwords
 
   API_VERSION = :v201509
 
+  define_required_credentials do
+    [:client_key, :client_secret, :developer_token, :customer_id,
+     :access_token, :refresh_token, :issued_at, :expires_in, :id_token,
+     :verification_code]
+  end
+
   def client
     args = {
       :authentication => {

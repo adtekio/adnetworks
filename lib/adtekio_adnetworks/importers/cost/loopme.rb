@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Loopme
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def load_data(from, till)
     from.upto(till).map do |date|
       uri = Addressable::URI.

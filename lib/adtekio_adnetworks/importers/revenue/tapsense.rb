@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Revenue::Tapsense
   ## More info on the API:
   ## https://github.com/TapSense/tapsense-adapters/wiki/TapSense-Reporting-API-for-Publishers
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def revenues(from, to)
   end
 

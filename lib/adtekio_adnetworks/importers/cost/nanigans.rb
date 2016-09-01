@@ -14,6 +14,10 @@ class AdtekioAdnetworks::Cost::Nanigans
 
   REVENUE_UPDATE_DATE = Date.parse('2014-05-26')
 
+  define_required_credentials do
+    [:partner_id, :secret, :username, :password]
+  end
+
   def booking_days(date)
     max_days = (Date.today - date).to_i
     [1, 2, 3, 7, 14, 30, 60, 90, 120].select do |day|

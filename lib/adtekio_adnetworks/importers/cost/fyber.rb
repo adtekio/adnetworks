@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Fyber
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def apps
     uri = Addressable::URI.
       parse("https://api.sponsorpay.com/advertiser/v1/application_list")

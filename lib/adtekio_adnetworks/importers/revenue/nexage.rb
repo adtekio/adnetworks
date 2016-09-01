@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Revenue::Nexage
   include AdtekioAdnetworks::RevenueImport
 
+  define_required_credentials do
+    [:company_id, :access_key, :secret_key]
+  end
+
   def revenues(from, to)
     []
   end

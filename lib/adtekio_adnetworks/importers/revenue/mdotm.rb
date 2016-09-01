@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Revenue::Mdotm
   include AdtekioAdnetworks::RevenueImport
 
+  define_required_credentials do
+    [:account_id, :secret_key]
+  end
+
   def revenues(from, to)
     report(from, to).map do |data|
       {

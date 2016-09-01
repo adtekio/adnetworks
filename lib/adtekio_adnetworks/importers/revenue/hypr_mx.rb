@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Revenue::HyprMx
 
   BASE_URL = 'https://live.hyprmx.com/fyber/v1/'
 
+  define_required_credentials do
+    [:apps]
+  end
+
   def revenues(from, to)
     # We import everything but hypermx sends on a per-country
     # basis with then a global value. That means the total

@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Cost::Applift
 
   DateSteps = 5
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def campaign_costs(from, till)
     from.step(till, DateSteps).map do |start_date|
       end_date = [start_date + DateSteps - 1, till].min

@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Facebook
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:access_token]
+  end
+
   def curlobj(urlstr)
     Curl::Easy.new.tap do |w|
       w.url = urlstr

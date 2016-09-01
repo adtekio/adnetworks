@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Crossinstall
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :api_key]
+  end
+
   def campaign_costs(from, till)
     uri = Addressable::URI.parse("http://api.crossinstall.com/api/revenue")
     uri.query_values = {

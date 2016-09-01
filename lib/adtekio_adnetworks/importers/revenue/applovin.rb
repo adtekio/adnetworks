@@ -4,6 +4,10 @@ class AdtekioAdnetworks::Revenue::Applovin
   BaseUrl = "https://r.applovin.com/report"
   ReportColumns = "application,platform,package_name,revenue,day,impressions,clicks,ad_type"
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def revenues(from, to)
     report(from, to).map do |(package, ad_type, date), values|
       osv = values.map{ |a| OpenStruct.new(a) }

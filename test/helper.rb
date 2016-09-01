@@ -39,6 +39,28 @@ class Minitest::Test
     puts "-"*20
   end
 
+  def for_all_cost_importers(&block)
+    AdtekioAdnetworks::CostImport.networks.map do |network,klz|
+      begin
+        yield(network, klz)
+      rescue Exception => e
+        dump_exception(e)
+        assert(false, "Failed cost test for #{network}")
+      end
+    end
+  end
+
+  def for_all_revenue_importers(&block)
+    AdtekioAdnetworks::RevenueImport.networks.map do |network,klz|
+      begin
+        yield(network, klz)
+      rescue Exception => e
+        dump_exception(e)
+        assert(false, "Failed revenue test for #{network}")
+      end
+    end
+  end
+
   def for_all_events(&block)
     AdtekioAdnetworks::Postbacks.networks.map do |network,klz|
       klz.postbacks.map do |platform,events|

@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Revenue::Supersonic
 
   BASE_URL = "https://api.supersonicads.com/api/rest/v1/ultra/statistics"
 
+  define_required_credentials do
+    [:access_key, :secret_key]
+  end
+
   def revenues(from, to)
     report(from,to).map do |(appname, appid, providerName, date), values|
       values.map do |dpt|

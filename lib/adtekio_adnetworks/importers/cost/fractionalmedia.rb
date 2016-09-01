@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Cost::Fractionalmedia
 
   API_ENDPOINT  = 'https://ws.fractionalmedia.com/ws'
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def http_call(method, login_required=false, params={})
     uri = Addressable::URI.parse("#{API_ENDPOINT}/#{method}.js")
     uri.query_values = params

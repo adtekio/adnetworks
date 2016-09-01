@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Cost::Startapp
 
   ApiEndpoint = "http://api.startapp.com/adv/report/1.0"
 
+  define_required_credentials do
+    [:partner, :token]
+  end
+
   def load_campaigns(from, till)
     uri = Addressable::URI.parse(ApiEndpoint)
     uri.query_values = {

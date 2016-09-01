@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Revenue::Chartboost
 
   BASE_URL = "https://analytics.chartboost.com/queue/app"
 
+  define_required_credentials do
+    [:user_id, :signature]
+  end
+
   def revenues(from, to)
     report(from,to).map do |hsh|
       {

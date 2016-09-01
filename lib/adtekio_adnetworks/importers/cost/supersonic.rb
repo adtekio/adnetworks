@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Supersonic
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:login, :key]
+  end
+
   def load_data(uri)
     req = Net::HTTP::Get.new(uri.request_uri)
     req.basic_auth credentials.login, credentials.key

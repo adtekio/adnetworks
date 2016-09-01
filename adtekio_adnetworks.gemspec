@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Gerrit Riessen"]
-  s.date = "2016-08-30"
+  s.date = "2016-09-01"
   s.description = "Encapsulate adnetworks and their importers."
   s.email = "gerrit@eccrine.io"
   s.extra_rdoc_files = [
@@ -210,8 +210,10 @@ Gem::Specification.new do |s|
     "test/unit/postbacks/test_trademob_magic_solver.rb",
     "test/unit/postbacks/test_unilead.rb",
     "test/unit/test_base_postback_class.rb",
+    "test/unit/test_cost_importers.rb",
     "test/unit/test_postbacks.rb",
-    "test/unit/test_postbacks_definition.rb"
+    "test/unit/test_postbacks_definition.rb",
+    "test/unit/test_revenue_importers.rb"
   ]
   s.homepage = "https://github.com/adtekio/adnetworks.git"
   s.licenses = ["MIT"]

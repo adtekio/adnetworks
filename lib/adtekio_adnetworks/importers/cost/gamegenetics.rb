@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Gamegenetics
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def csv_data(from, till)
     agent = Mechanize.new
     agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE

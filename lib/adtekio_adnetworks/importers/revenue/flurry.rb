@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Revenue::Flurry
   include AdtekioAdnetworks::RevenueImport
 
+  define_required_credentials do
+    [:keys, :access_code]
+  end
+
   def revenues(from, to)
     report(from, to).map do |data|
       data.map do |adspace_id, values|

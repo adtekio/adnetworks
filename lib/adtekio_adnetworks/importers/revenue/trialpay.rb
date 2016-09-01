@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Revenue::Trialpay
   include AdtekioAdnetworks::RevenueImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def revenues(from, to)
   end
 

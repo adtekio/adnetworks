@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Vungle
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def load_campaign_ids
     uri = Addressable::URI.parse("https://ssl.vungle.com/api/campaigns")
     uri.query_values = {

@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Mobpartner
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:login, :api_key]
+  end
+
   def campaign_costs(from, till)
     uri = Addressable::URI.
       parse("http://reportapiv2.mobpartner.mobi/report2.php")

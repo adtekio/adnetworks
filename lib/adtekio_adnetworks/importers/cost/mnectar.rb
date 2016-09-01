@@ -4,6 +4,10 @@ class AdtekioAdnetworks::Cost::Mnectar
   Endpoint = "http://api.mnectar.com/report/v1/advertiser/daily"
   Stepsize = 30
 
+  define_required_credentials do
+    [:advertiser_id, :secret_key]
+  end
+
   def load_data(from, till)
     (from..till).step(Stepsize).map do |start_date|
       uri = Addressable::URI.parse(Endpoint)

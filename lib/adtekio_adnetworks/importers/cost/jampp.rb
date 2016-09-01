@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Jampp
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def campaigns(from, till)
     uri = Addressable::URI.parse("http://ruby.jampp.com/api/advertisers.json")
     uri.query_values = {

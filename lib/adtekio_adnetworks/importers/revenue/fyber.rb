@@ -4,6 +4,10 @@ class AdtekioAdnetworks::Revenue::Fyber
   REPORT_URL =
     "https://dashboard.fyber.com/publishers/v1/28839/statistics.json"
 
+  define_required_credentials do
+    [:key]
+  end
+
   def revenues(from, to)
     report(from,to).map do |dpt|
       appname = dpt['readable'].strip

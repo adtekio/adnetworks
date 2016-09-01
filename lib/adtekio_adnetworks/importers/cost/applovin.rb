@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Applovin
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def campaign_name(country, device, date, campaign_name)
     name_parts = [country, device]
 

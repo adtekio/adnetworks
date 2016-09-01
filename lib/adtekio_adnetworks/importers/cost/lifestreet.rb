@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Lifestreet
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def campaign_costs(from, till)
     uri = Addressable::URI.
       parse("https://my.lifestreetmedia.com/reporting/run/")

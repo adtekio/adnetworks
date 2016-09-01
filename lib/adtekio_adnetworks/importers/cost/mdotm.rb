@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Mdotm
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :api_key]
+  end
+
   def campaigns(from, till)
     uri = Addressable::URI.parse("http://ads.mdotm.com/api/1.0/getCampaigns")
     uri.query_values = {

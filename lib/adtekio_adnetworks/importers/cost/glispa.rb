@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Glispa
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:cid, :token]
+  end
+
   def csv_data(from, till)
     uri = Addressable::URI.
       parse("https://www.glispainteractive.com/API/advreport.php")

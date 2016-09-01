@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Appia
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def campaign_costs(from, till)
     uri = Addressable::URI.
       parse("https://via.appia.com/pss/api/report/advertiser/performance.json")

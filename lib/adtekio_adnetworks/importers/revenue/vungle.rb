@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Revenue::Vungle
 
   BASE_URL = "https://ssl.vungle.com"
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def revenues(from, to)
     report(from,to).map do |dpt|
       nmstuff = {

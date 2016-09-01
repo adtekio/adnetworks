@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Revmob
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:user_id, :auth_token]
+  end
+
   def campaign_costs(from, till)
     url = "https://www.revmobmobileadnetwork.com/api/v1/users"+
       "/#{credentials.user_id}/auth/#{credentials.auth_token}/campaigns"+

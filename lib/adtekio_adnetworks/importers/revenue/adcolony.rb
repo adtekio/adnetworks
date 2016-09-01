@@ -9,6 +9,10 @@ class AdtekioAdnetworks::Revenue::Adcolony
 
   BASE_URL = "https://clients.adcolony.com/api/v2/publisher_summary"
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def revenues(from, to)
     (from..to).map do |day|
       store = Hash.new {|h,k| h[k] = Hash.new { |h1,k1| h1[k1]=Hash.new(0)}}

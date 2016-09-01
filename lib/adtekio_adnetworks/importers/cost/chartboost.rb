@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Chartboost
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:user_id, :signature]
+  end
+
   def campaign_costs(from, till)
 
     uri = Addressable::URI.

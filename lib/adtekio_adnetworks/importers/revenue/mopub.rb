@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Revenue::Mopub
   include AdtekioAdnetworks::RevenueImport
 
+  define_required_credentials do
+    [:account, :key]
+  end
+
   def revenues(from, to)
     # index meanings can be taken from exp_cols
     report(from,to).map do |row|

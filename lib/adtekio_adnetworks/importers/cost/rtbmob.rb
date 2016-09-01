@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Rtbcom
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:advertiser_id, :secret_key]
+  end
+
   def csv_data(from, till)
     uri = Addressable::URI.parse("https://api.manage.com/1/stats.php")
     uri.query_values = {

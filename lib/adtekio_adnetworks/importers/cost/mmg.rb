@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Cost::Mmg
   include AdtekioAdnetworks::CostImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def csv_data(date)
     agent = Mechanize.new
     agent.user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) '+

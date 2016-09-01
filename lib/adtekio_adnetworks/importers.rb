@@ -25,6 +25,16 @@ module AdtekioAdnetworks
 
         def self.included(importer_klz)
           register(importer_klz)
+          importer_klz.class_eval do
+            def self.define_required_credentials(&block)
+              @reqcreds = yield
+              self.class_eval do
+                def self.required_credentials
+                  @reqcreds
+                end
+              end
+            end
+          end
         end
       end
     end

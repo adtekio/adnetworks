@@ -1,6 +1,10 @@
 class AdtekioAdnetworks::Revenue::Lifestreet
   include AdtekioAdnetworks::RevenueImport
 
+  define_required_credentials do
+    [:username, :password]
+  end
+
   def revenues(from, to)
     add_global_stats(from, to).map do |(date, appname), values|
       values.map do |dpt|

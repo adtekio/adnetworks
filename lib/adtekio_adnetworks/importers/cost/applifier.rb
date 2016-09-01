@@ -3,6 +3,10 @@ class AdtekioAdnetworks::Cost::Applifier
 
   DateSteps = 5
 
+  define_required_credentials do
+    [:api_key]
+  end
+
   def csv_data(from, till)
     uri = Addressable::URI.
       parse("https://gameads-admin.applifier.com/stats/acquisition-api")
