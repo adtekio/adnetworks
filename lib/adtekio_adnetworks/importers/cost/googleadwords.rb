@@ -88,14 +88,12 @@ class AdtekioAdnetworks::Cost::Googleadwords
     end
   end
 
-  def oauth2_token(user)
-    @user = user
+  def oauth2_token
     client.
       authorize(:oauth2_verification_code => credentials.verification_code)
   end
 
-  def generate_link_to_verification_code(user)
-    @user = user
+  def generate_link_to_verification_code
     client.authorize() { |auth_url| return auth_url }
   end
 end
