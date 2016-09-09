@@ -13,6 +13,12 @@ module AdtekioAdnetworks
     def check_currency!(currency, expected_currency)
       raise "Unsupported currency: #{currency}" if currency != expected_currency
     end
+
+    def not_matched(hsh)
+      uri = Addressable::URI.new
+      uri.query_values = hsh
+      uri.query
+    end
   end
 end
 

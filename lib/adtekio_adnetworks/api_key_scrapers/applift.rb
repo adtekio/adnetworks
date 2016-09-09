@@ -6,7 +6,7 @@ module AdtekioAdnetworks
           submit
 
         get_and_match("https://partner.applift.com/stats/stats_api",
-                    /Your API Key .+ <i>([^ ]+)[<]/)
+                      /Your API Key .+ <i>([^ ]+)[<]/)
       end
     end
   end

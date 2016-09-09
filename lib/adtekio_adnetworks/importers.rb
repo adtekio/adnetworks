@@ -49,7 +49,7 @@ module AdtekioAdnetworks
     end
 
     def credentials=(val)
-      @credentials = val
+      @credentials = val.is_a?(Hash) ? OpenStruct.new(val) : val
     end
   end
 end

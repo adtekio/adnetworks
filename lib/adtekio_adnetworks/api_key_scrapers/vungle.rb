@@ -5,10 +5,10 @@ module AdtekioAdnetworks
         csrf_token = get_and_match("https://v.vungle.com/dashboard/login",
                                    /id="csrf" value="([^"]+)"/)
 
-        agent.post("https://v.vungle.com/dashboard/login", {
-                     "_csrf"    => csrf_token,
-                     "email"    => params["username"],
-                     "password" => params["password"]})
+        _p("https://v.vungle.com/dashboard/login", {
+             "_csrf"    => csrf_token,
+             "email"    => params["username"],
+             "password" => params["password"]})
 
         account_id = get_and_match("https://v.vungle.com/dashboard/reports",
                                    /"account":."_id":"([^"]+)"/)

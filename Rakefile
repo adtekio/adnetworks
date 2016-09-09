@@ -14,13 +14,21 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "adtekio_adnetworks"
-  gem.homepage = "https://github.com/adtekio/adnetworks.git"
-  gem.license = "MIT"
-  gem.summary = %Q{Encapsulate adnetworks and their importers.}
-  gem.description = %Q{Encapsulate adnetworks and their importers.}
-  gem.email = "gerrit@eccrine.io"
-  gem.authors = ["Gerrit Riessen"]
+  gem.name        = "adtekio_adnetworks"
+  gem.homepage    = "https://github.com/adtekio/adnetworks"
+  gem.license     = "MIT"
+  gem.summary     = %Q{Encapsulate mobile adnetworks support code.}
+  gem.description = %Q{Why this gem?
+The aim is to make mobile advertising and mobile user acquistion
+more flexible and cost effective.
+
+In a sense, this gem can help become your own mobile adnetwork aggregator
+by allowing you to easily try out new adnetworks without having to integrate
+their respective SDKs. The gem also provides the raw data for comparing the
+performance of adnetworks and allowing you to make informed choices.
+}
+  gem.email       = "gerrit.riessen@gmail.com"
+  gem.authors     = ["Gerrit Riessen"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

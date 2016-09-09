@@ -68,4 +68,18 @@ class AdtekioAdnetworks::Revenue::Flurry
       JSON(Net::HTTP::Persistent.new('flurry').request(datauri).body)
     end
   end
+
+  def repeatthis(cnt=5, timeout=0.1, &block)
+    last_exception = nil
+    cnt.times do
+      begin
+        return yield
+      rescue Exception => e
+        last_exception = e
+        sleep timeout
+        next
+      end
+    end
+    raise last_exception
+  end
 end
