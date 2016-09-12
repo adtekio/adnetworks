@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name        = "adtekio_adnetworks"
   gem.homepage    = "https://github.com/adtekio/adnetworks"
-  gem.license     = "MIT"
+  gem.license     = "LGPL-2.0"
   gem.summary     = %Q{Encapsulate mobile adnetworks support code.}
   gem.description = %Q{Why this gem?
 The aim is to make mobile advertising and mobile user acquistion
