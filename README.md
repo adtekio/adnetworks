@@ -299,6 +299,9 @@ If, on the other hand, your are not doing your own user tracking, then
 postbacks are no benefit to you whatsoever. However, you could start using
 [adtek.io][adtek] which also provides tracking and a single SDK.
 
+## Travis
+
+[![Build Status](https://travis-ci.org/adtekio/adnetworks.svg?branch=master)](https://travis-ci.org/adtekio/adnetworks)
 
 ## License
 
